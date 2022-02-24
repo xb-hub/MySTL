@@ -7,12 +7,23 @@ union FreeList
     char* address[1];
 };
 
+// typename.cpp
+template<class T>
+class X
+{
+public:
+    typename T::Y m_y;   // treat Y as a type
+};
+
+template<typename T>
+class Z
+{
+public:
+    typedef T Y;
+};
+
 int main()
 {
-    FreeList* head = (FreeList*) malloc(5);
-    FreeList* node = (FreeList*) malloc(5);
-    head->free_list_link = node;
-    printf("%x\n%x\n", (FreeList*)head, (char*)head);
-    printf("%x\n%x\n", (FreeList*)node, (char*)node);
-    printf("%x\n%x\n", (FreeList*)head->free_list_link, (char*)head->free_list_link);
+    X<Z<int>> x;
+    std::cout << typeid(x.m_y).name() << std::endl;
 }
