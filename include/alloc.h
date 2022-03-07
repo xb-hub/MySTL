@@ -58,7 +58,7 @@ namespace mystl
     // 初始化static成员变量
     char* alloc::start_free = nullptr;
     char* alloc::end_free = nullptr;
-    size_t alloc::heap_size = 0;
+    size_t alloc::heap_size = 1;
 
     FreeList* alloc::free_list[NFreeLists] = {nullptr, nullptr, nullptr, nullptr,
             nullptr, nullptr, nullptr, nullptr,
@@ -80,7 +80,9 @@ namespace mystl
             std::cout << "free_list为空，从内存池内申请内存填充！" << std::endl;
             return refill(round_up(n));
         }
+        std::cout << "free_list有空间，分配内存！" << result << std::endl;
         free_node = free_node->free_list_link;
+        std::cout << "free_node:" << free_node << std::endl;
         return result;
     }
 
@@ -104,21 +106,22 @@ namespace mystl
     {
         int nobjs = 20;
         char* fill_node = my_chunk_alloc(n, nobjs);
-        if(nobjs == 1)   // 将第一个内存块返回给调用者。
+        if(nobjs == 1)   // 如果只需申请一块内存，将内存块返回给调用者。
         {
             std::cout << "返回第一块给调用者！" << std::endl;
             return fill_node;
         }
         std::cout << "将剩下内存加入free_list！" << std::endl;
-        FreeList* free_node = free_list[freelist_index(n)];
         FreeList* result = (FreeList*)fill_node;
-        free_node = (FreeList*)fill_node + n;
+        free_list[freelist_index(n)] = (FreeList*)(fill_node + n);
+        FreeList* free_node = free_list[freelist_index(n)];
         for(int i = 2; i < nobjs; i++)
         {
             free_node->free_list_link = (FreeList*)(fill_node + i * n);
             free_node = free_node->free_list_link;
         }
         free_node->free_list_link = nullptr;
+        std::cout << "free_node:" << free_list[freelist_index(n)] << std::endl;
         return result;
     }
 
@@ -146,6 +149,7 @@ namespace mystl
         else
         {
             size_t byte_to_get = 2 * total_byte + (heap_size >> 4); // 扩充内存池
+            std::cout << "扩充大小：" << byte_to_get << std::endl;
             // 如果内存池内还有剩余空间，将其加入到相应的free_list
             if(left_byte > 0)
             {

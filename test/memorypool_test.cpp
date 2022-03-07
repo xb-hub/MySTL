@@ -6,13 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/malloc.h>
+#include <malloc.h>
 using namespace mystl;
 
 int main()
 {
     alloc *alloc_ = new alloc();
-    int* point = (int*)alloc_->allocate(2);
-    std::cout << malloc_usable_size(*point) << std::endl;
+    int* point = (int*)alloc_->allocate(128);
+    std::cout << malloc_usable_size(point) << std::endl;
+    int* point1 = (int*)alloc_->allocate(128);
+    std::cout << malloc_usable_size(point1) << std::endl;
 }
 
