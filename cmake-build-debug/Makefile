@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MyTinySTL
+# Target rules for targets named test
 
 # Build rule for target.
-MyTinySTL: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyTinySTL
-.PHONY : MyTinySTL
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-MyTinySTL/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyTinySTL.dir/build.make CMakeFiles/MyTinySTL.dir/build
-.PHONY : MyTinySTL/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
-test/main.o: test/main.cpp.o
-.PHONY : test/main.o
+test/memorypool_test.o: test/memorypool_test.cpp.o
+.PHONY : test/memorypool_test.o
 
 # target to build an object file
-test/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyTinySTL.dir/build.make CMakeFiles/MyTinySTL.dir/test/main.cpp.o
-.PHONY : test/main.cpp.o
+test/memorypool_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/memorypool_test.cpp.o
+.PHONY : test/memorypool_test.cpp.o
 
-test/main.i: test/main.cpp.i
-.PHONY : test/main.i
+test/memorypool_test.i: test/memorypool_test.cpp.i
+.PHONY : test/memorypool_test.i
 
 # target to preprocess a source file
-test/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyTinySTL.dir/build.make CMakeFiles/MyTinySTL.dir/test/main.cpp.i
-.PHONY : test/main.cpp.i
+test/memorypool_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/memorypool_test.cpp.i
+.PHONY : test/memorypool_test.cpp.i
 
-test/main.s: test/main.cpp.s
-.PHONY : test/main.s
+test/memorypool_test.s: test/memorypool_test.cpp.s
+.PHONY : test/memorypool_test.s
 
 # target to generate assembly for a file
-test/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyTinySTL.dir/build.make CMakeFiles/MyTinySTL.dir/test/main.cpp.s
-.PHONY : test/main.cpp.s
+test/memorypool_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test/memorypool_test.cpp.s
+.PHONY : test/memorypool_test.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MyTinySTL"
-	@echo "... test/main.o"
-	@echo "... test/main.i"
-	@echo "... test/main.s"
+	@echo "... test"
+	@echo "... test/memorypool_test.o"
+	@echo "... test/memorypool_test.i"
+	@echo "... test/memorypool_test.s"
 .PHONY : help
 
 

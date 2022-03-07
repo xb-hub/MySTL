@@ -21,8 +21,10 @@ namespace mystl
     }
 
     template<class T1, class... Args>
-    void const(T1* p, Args&&... args)
-    {}
+    void construct(T1* p, Args&&... args)
+    {
+
+    }
 }
 
 #endif //MYTINYSTL_CONSTRUCT_H
