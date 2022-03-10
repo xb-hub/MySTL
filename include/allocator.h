@@ -5,6 +5,7 @@
 #ifndef MYTINYSTL_ALLOCATOR_H
 #define MYTINYSTL_ALLOCATOR_H
 #include <iostream>
+#include "construct.h"
 
 namespace mystl
 {
@@ -24,6 +25,16 @@ namespace mystl
 
         void deallocate(T* p);
         void deallocate(T* p, size_t n);
+
+        void construct(T* p);
+        void construct(T* p, const T& value);
+        void construct(T* p, T&& value);
+
+        template<class... Args>
+        void construct(T*p, Args&& ...args);
+
+        void destory(T* p);
+        void destory(T* frist, T* last);
     };
 
     template<class T>
@@ -50,6 +61,45 @@ namespace mystl
     {
         if(p == nullptr)    return;
         ::operator delete(p, n);
+    }
+
+    template<class T>
+    void allocator<T>::construct(T *p)
+    {
+        mystl::construct(p);
+    }
+
+    template<class T>
+    void allocator<T>::construct(T *p, const T &value)
+    {
+        std::cout << "placement new!" << std::endl;
+        mystl::construct(p, value);
+    }
+
+    template<class T>
+    void allocator<T>::construct(T *p, T &&value)
+    {
+        std::cout << "right value!" << std::endl;
+        mystl::construct(p, std::move(value));
+    }
+
+    template<class T>
+    template<class ...Args>
+    void allocator<T>::construct(T *p, Args&& ...args)
+    {
+        mystl::construct(p, std::forward<Args>(args)...);
+    }
+
+    template<class T>
+    void allocator<T>::destory(T *p)
+    {
+        mystl::destory(p);
+    }
+
+    template<class T>
+    void allocator<T>::destory(T *first, T *last)
+    {
+        mystl::destory(first, last);
     }
 }
 
