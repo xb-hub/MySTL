@@ -41,21 +41,21 @@ struct iterator_traits
 template<class I>
 struct iterator_traits<I*>
 {
-    typedef std::random_access_iterator_tag iterator_category;
-    typedef I                               value_type;
-    typedef ptrdiff_t                       difference_type;
-    typedef I*                              pointer;
-    typedef I&                              reference;
+    typedef mystl::random_access_iterator_tag   iterator_category;
+    typedef I                                   value_type;
+    typedef ptrdiff_t                           difference_type;
+    typedef I*                                  pointer;
+    typedef I&                                  reference;
 };
 
 template<class I>
 struct iterator_traits<const I*>
 {
-    typedef std::random_access_iterator_tag iterator_category;
-    typedef I                               value_type;
-    typedef ptrdiff_t                       difference_type;
-    typedef const I*                              pointer;
-    typedef const I&                              reference;
+    typedef mystl::random_access_iterator_tag   iterator_category;
+    typedef I                                   value_type;
+    typedef ptrdiff_t                           difference_type;
+    typedef const I*                            pointer;
+    typedef const I&                            reference;
 };
 
 // 萃取category

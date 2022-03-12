@@ -29,12 +29,6 @@ namespace mystl
     }
 
     template<class T>
-    void destory(T* p, std::true_type)
-    {
-        p->~T();
-    }
-
-    template<class T>
     void destory_one(T* p, std::false_type)
     {
         if(!p)

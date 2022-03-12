@@ -20,21 +20,21 @@ namespace mystl
         typedef const T&    const_reference;
         typedef ptrdiff_t   difference_type;
     public:
-        T* allocate();
-        T* allocate(size_t n);
+        static T* allocate();
+        static T* allocate(size_t n);
 
-        void deallocate(T* p);
-        void deallocate(T* p, size_t n);
+        static void deallocate(T* p);
+        static void deallocate(T* p, size_t n);
 
-        void construct(T* p);
-        void construct(T* p, const T& value);
-        void construct(T* p, T&& value);
+        static void construct(T* p);
+        static void construct(T* p, const T& value);
+        static void construct(T* p, T&& value);
 
         template<class... Args>
-        void construct(T*p, Args&& ...args);
+        static void construct(T*p, Args&& ...args);
 
-        void destory(T* p);
-        void destory(T* frist, T* last);
+        static void destory(T* p);
+        static void destory(T* frist, T* last);
     };
 
     template<class T>

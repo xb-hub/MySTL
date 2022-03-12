@@ -11,6 +11,7 @@
 #include <cstddef>
 #include <iostream>
 #include <cstdlib>
+#include <memory>
 
 namespace mystl
 {

@@ -7,7 +7,8 @@ include_directories(
 
 set(CMAKE_CXX_STANDARD 11)
 
-#add_executable(MyTinySTL test/main.cpp)
+add_executable(MyTinySTL test/main.cpp)
 
 add_executable(memorypool test/memorypool_test.cpp)
 add_executable(allocator test/allocator_test.cpp)
+add_executable(vector test/vector_test.cpp)
