@@ -28,20 +28,38 @@ namespace mystl
         ::new(p) T1(std::forward<Args>(args)...);
     }
 
-    template<class T>
-    void destory_one(T* p, std::false_type)
+
+    // 有基本的析构函数，例如不含指针的类和基本类型
+    template<class Iterator>
+    void destory_one(Iterator p, std::true_type)
     {
+        std::cout << "has_trivially_destructible" << std::endl;
+    }
+
+    // 没有基本的析构函数，例如含有指针的类，需要调用析构函数释放内存。
+    template<class Iterator>
+    void destory_one(Iterator p, std::false_type)
+    {
+        std::cout << "no_trivially_destructible" << std::endl;
         if(!p)
         {
             p->~T();
         }
     }
 
-    template<class T>
-    void destory_one(T* p, std::true_type) {}
+    // std::is_trivially_destructible<T>::value  判断类型T是否可以被破坏。
+    template<class Iterator>
+    void destory(Iterator p)
+    {
+        typedef std::is_trivially_destructible<typename iterator_traits<Iterator>::value_type> trivial_destructor;
+        destory_one(p, trivial_destructor());
+    }
 
-    template<class ForwardIterator>
-    void destory_batch(ForwardIterator first, ForwardIterator last, std::false_type)
+    template<class Iterator>
+    void destory_dispatch(Iterator first, Iterator last, std::true_type) {}
+
+    template<class Iterator>
+    void destory_dispatch(Iterator first, Iterator last, std::false_type)
     {
         for(; first != last; first++)
         {
@@ -49,20 +67,11 @@ namespace mystl
         }
     }
 
-    template<class ForwardIterator>
-    void destory_bath(ForwardIterator first, ForwardIterator last, std::true_type) {}
-
-    // std::is_trivially_destructible<T>::value  判断类型T是否可以被破坏。
-    template<class T>
-    void destory(T* p)
+    template<class Iterator>
+    void destory(Iterator first, Iterator last)
     {
-        destory_one(p, std::is_trivially_destructible<T>::value);
-    }
-
-    template<class ForwardIterator>
-    void destory(ForwardIterator first, ForwardIterator last)
-    {
-        destory_batch(first, last, std::is_trivially_destructible<typename iterator_traits<ForwardIterator>::value_type>::value);
+        typedef std::is_trivially_destructible<typename iterator_traits<Iterator>::value_type> trivial_destructor;
+        destory_dispatch(first, last, trivial_destructor());
     }
 }
 

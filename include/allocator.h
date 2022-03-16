@@ -60,7 +60,7 @@ namespace mystl
     void allocator<T>::deallocate(T *p, size_t n)
     {
         if(p == nullptr)    return;
-        ::operator delete(p, n);
+        ::operator delete(p);
     }
 
     template<class T>
