@@ -212,6 +212,12 @@ namespace mystl
         return first;
     }
 
+    template<class T, class Alloc>
+    void vector<T, Alloc>::insert(iterator position, size_type n, const T &value)
+    {
+        
+    }
+
 } // namespace mystl
 
 #endif //MYTINYSTL_VECTOR_H
