@@ -1,11 +1,14 @@
 //
 // Created by 许斌 on 2022/2/24.
 //
-
+/**
+ * allocate: 申请内存
+ * deallocate: 释放申请的内存
+ */
 #ifndef MYTINYSTL_ALLOC_H
 #define MYTINYSTL_ALLOC_H
-//#define __USE_MALLOC
-#define __DEBUG
+#define __USE_MALLOC
+//#define __DEBUG
 
 #include <new>
 #include <cstddef>
@@ -298,5 +301,26 @@ typedef malloc_alloc alloc;
 #else
 typedef default_alloc alloc;
 #endif
+    template<class T, class Alloc = alloc>
+    class simple_alloc
+    {
+    public:
+        static T* allocate(size_t n)
+        {
+            return n == 0 ? nullptr : static_cast<T*>(Alloc::allocate(n * sizeof(T)));
+        }
+        static T* allocate()
+        {
+            return static_cast<T*>(Alloc::allocate(sizeof(T)));
+        }
+        static void deallocate(T* p, size_t n)
+        {
+            Alloc::deallocate(p, n * sizeof(T));
+        }
+        static void deallocate(T* p)
+        {
+            Alloc::deallocate(p, sizeof(T));
+        }
+    };
 } // namespace mystl
 #endif //MYTINYSTL_ALLOC_H

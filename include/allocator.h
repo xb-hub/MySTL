@@ -1,7 +1,10 @@
 //
 // Created by 许斌 on 2022/2/24.
 //
-
+/**
+ * allocate: 申请内存
+ * deallocate: 释放申请的内存
+ */
 #ifndef MYTINYSTL_ALLOCATOR_H
 #define MYTINYSTL_ALLOCATOR_H
 #include <iostream>

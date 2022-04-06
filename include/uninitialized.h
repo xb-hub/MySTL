@@ -2,6 +2,9 @@
 // Created by 许斌 on 2022/3/11.
 //
 
+/**
+ * 用于进行未初始化的复制，填充
+ */
 #ifndef MYTINYSTL_UNINITIALIZED_H
 #define MYTINYSTL_UNINITIALIZED_H
 #include "construct.h"
@@ -27,7 +30,7 @@ namespace mystl
             mystl::construct(cur, *first);
             ++cur;  ++first;
         }
-        return result;
+        return cur;
     }
 
     template<class InputIterator, class ForwardIterator, class T>
@@ -46,7 +49,7 @@ namespace mystl
     /******************************** uninitialized_fill ********************************/
     /******************************** template<class Iterator, class Size, class T> ********************************/
     template<class Iterator, class Size, class T>
-    void __uninitialized_fill_aux(Iterator first, Size n, const T& value, std::false_type)
+    Iterator __uninitialized_fill_n_aux(Iterator first, Size n, const T& value, std::false_type)
     {
 #ifdef __DEBUG
         std::cout << "! POD" << std::endl;
@@ -68,28 +71,29 @@ namespace mystl
                 ++first;
             }
         }
+        return cur;
     }
 
     template<class Iterator, class Size, class T>
-    void __uninitialized_fill_aux(Iterator first, Size n, const T& value, std::true_type)
+    Iterator __uninitialized_fill_n_aux(Iterator first, Size n, const T& value, std::true_type)
     {
 #ifdef __DEBUG
         std::cout << "POD_type" << std::endl;
 #endif
-        mystl::fill_n(first, n, value, iterator_category(first));
+        return mystl::fill_n(first, n, value, iterator_category(first));
     }
 
     template<class Iterator, class Size, class T, class T1>
-    void __uninitialized_fill(Iterator first, Size n, const T& value, T1*)
+    Iterator __uninitialized_fill_n(Iterator first, Size n, const T& value, T1*)
     {
         typedef typename type_traits<T1>::is_POD_type is_POD;
-        __uninitialized_fill_aux(first, n, value, is_POD());
+        return __uninitialized_fill_n_aux(first, n, value, is_POD());
     }
 
     template<class Iterator, class Size, class T>
-    void uninitialized_fill_n(Iterator first, Size n, const T& value)
+    Iterator uninitialized_fill_n(Iterator first, Size n, const T& value)
     {
-        __uninitialized_fill(first, n, value, value_type(first));
+        return __uninitialized_fill_n(first, n, value, value_type(first));
     }
 
     /******************************** template<class Iterator, class T> ********************************/
@@ -115,12 +119,25 @@ namespace mystl
         }
     }
 
+    template<class Iterator, class T>
+    void __uninitialized_fill_aux(Iterator first, Iterator last, const T& value, std::true_type)
+    {
+        fill(first, last, value);
+    }
 
-//    template<class Iterator, class T>
-//    void uninitialized_fill(Iterator first, Iterator last, const T& value)
-//    {
-//        __uninitialized_fill(first, last, value, value_type(first));
-//    }
+    template<class Iterator, class T>
+    inline void __uninitialized_fill(Iterator first, Iterator last, const T& value, T*)
+    {
+        typedef typename mystl::type_traits<T>::is_POD_type is_POD;
+        __uninitialized_fill_aux(first, last, value, is_POD());
+    }
+
+
+    template<class Iterator, class T>
+    inline void uninitialized_fill(Iterator first, Iterator last, const T& value)
+    {
+        __uninitialized_fill(first, last, value, value_type(first));
+    }
 
 }
 

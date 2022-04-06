@@ -17,13 +17,22 @@ int main()
 //    {
 //        std::cout << array[i].no << std::endl;
 //    }
-    vector<int> array(15, 1);
+    mystl::vector<int> array(15, 1);
+    mystl::vector<int> a;
     array.push_back(2);
     array.push_back(3);
     for(int i = 0; i < 17; i++)
     {
-        std::cout << array[i] << std::endl;
+        std::cout << array[i] << "-";
     }
+    array.insert(array.begin(), 10, 5);
+    std::cout << std::endl;
+    array.erase(array.end() - 1);
+    for(int i = 0; i < 26; i++)
+    {
+        std::cout << array[i] << "-";
+    }
+    std::cout << std::endl;
     array.pop_back();
     array.push_back(4);
     array.clear();

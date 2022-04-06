@@ -1,7 +1,10 @@
 //
 // Created by 许斌 on 2022/2/24.
 //
-
+/**
+ * construct: 创建对象
+ * destory: 释放容器内存储的对象
+ */
 #ifndef MYTINYSTL_CONSTRUCT_H
 #define MYTINYSTL_CONSTRUCT_H
 
