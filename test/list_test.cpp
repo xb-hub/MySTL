@@ -18,7 +18,6 @@ int main()
     l.push_back(3);
     l.push_back(2);
     l.push_back(1);
-    l.
     list<int>::iterator first = l.begin();
     list<int>::iterator last = l.end();
     list<int>::iterator l_pos = l1.begin();

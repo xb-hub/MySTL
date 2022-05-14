@@ -7,6 +7,7 @@
  */
 #ifndef MYTINYSTL_CONSTRUCT_H
 #define MYTINYSTL_CONSTRUCT_H
+// #define __DEBUG
 
 #include <new>
 #include "iterator.h"
@@ -36,14 +37,18 @@ namespace mystl
     template<class Iterator>
     void destory_one(Iterator p, std::true_type)
     {
-        std::cout << "has_trivially_destructible" << std::endl;
+        #ifdef __DEBUG
+            std::cout << "has_trivially_destructible" << std::endl;
+        #endif
     }
 
     // 没有基本的析构函数，例如含有指针的类，需要调用析构函数释放内存。
     template<class Iterator>
     void destory_one(Iterator p, std::false_type)
     {
-        std::cout << "no_trivially_destructible" << std::endl;
+        #ifdef __DEBUG
+            std::cout << "no_trivially_destructible" << std::endl;
+        #endif
         if(!p)
         {
             p->~T();

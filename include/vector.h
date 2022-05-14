@@ -4,7 +4,8 @@
 
 #ifndef MYTINYSTL_VECTOR_H
 #define MYTINYSTL_VECTOR_H
-#define __DEBUG
+// #define __DEBUG
+
 #include <cstddef>
 #include "allocator.h"
 #include "alloc.h"
@@ -22,6 +23,7 @@ namespace mystl
         typedef ptrdiff_t difference_type;
         typedef value_type*  pointer;
         typedef value_type&  reference;
+        typedef const value_type& const_reference;
         typedef value_type*  iterator;
         typedef const value_type*  const_iterator;
         typedef size_t size_type;
@@ -69,12 +71,18 @@ namespace mystl
         void pop_back();
         void emplace_back(const T& value);
 
+        reference front() { return *begin(); }
+        reference back() { return *(end() - 1); }
+        const_reference front() const { return *begin_; }
+        const_reference back() const { return *(end_ - 1); }
+
         iterator erase(iterator first, iterator last);
         iterator erase(iterator element);
 
         void insert(iterator position, size_type n, const T& value);
         void clear() { erase(begin(), end()); }
 
+        bool empty() const { return begin_ == end_; }
         size_type size() const { return end_ - begin_; }
         size_type capacity() const { return cap_ - begin_; }
 

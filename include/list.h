@@ -4,7 +4,7 @@
 
 #ifndef MYTINYSTL_LIST_H
 #define MYTINYSTL_LIST_H
-#define __DEBUG
+// #define __DEBUG
 
 #include "allocator.h"
 #include "alloc.h"

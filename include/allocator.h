@@ -7,6 +7,8 @@
  */
 #ifndef MYTINYSTL_ALLOCATOR_H
 #define MYTINYSTL_ALLOCATOR_H
+// #define __DEBUG
+
 #include <iostream>
 #include "construct.h"
 
@@ -75,14 +77,18 @@ namespace mystl
     template<class T>
     void allocator<T>::construct(T *p, const T &value)
     {
-        std::cout << "placement new!" << std::endl;
+        #ifdef __DEBUG
+            std::cout << "placement new!" << std::endl;
+        #endif
         mystl::construct(p, value);
     }
 
     template<class T>
     void allocator<T>::construct(T *p, T &&value)
     {
-        std::cout << "right value!" << std::endl;
+        #ifdef __DEBUG
+            std::cout << "right value!" << std::endl;
+        #endif
         mystl::construct(p, std::move(value));
     }
 

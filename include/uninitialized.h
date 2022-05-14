@@ -7,6 +7,8 @@
  */
 #ifndef MYTINYSTL_UNINITIALIZED_H
 #define MYTINYSTL_UNINITIALIZED_H
+// #define __DEBUG
+
 #include "construct.h"
 #include "iterator.h"
 #include "type_traits.h"
