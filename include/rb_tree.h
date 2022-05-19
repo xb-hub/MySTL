@@ -470,10 +470,10 @@ private:
     base_ptr& right_most() const { return header->rchild; }
 
 public:
-    node_ptr m_begin() { return static_cast<node_ptr>(left_most()); }
-    node_ptr m_end() { return static_cast<node_ptr>(header); }
-    iterator begin() { return left_most(); }
-    iterator end() { return header; }
+    node_ptr m_begin() const { return static_cast<node_ptr>(left_most()); }
+    node_ptr m_end() const { return static_cast<node_ptr>(header); }
+    iterator begin() const { return left_most(); }
+    iterator end() const { return header; }
     const_iterator cbegin() const { return begin(); }
     const_iterator cend() const { return end(); }
 
@@ -538,7 +538,7 @@ private:
     void __erase(node_ptr x);
 
 public:
-    std::pair<iterator, bool> insert_equal(const data_type& value);
+    iterator insert_equal(const data_type& value);
     std::pair<iterator, bool> insert_unique(const data_type& value);
 
 private:
@@ -608,14 +608,18 @@ typename rb_tree<T, Compare, Alloc>::iterator rb_tree<T, Compare, Alloc>::__inse
 }
 
 template<typename T, typename Compare, typename Alloc>
-std::pair<typename rb_tree<T, Compare, Alloc>::iterator, bool> rb_tree<T, Compare, Alloc>::insert_equal(const data_type& value)
+typename rb_tree<T, Compare, Alloc>::iterator rb_tree<T, Compare, Alloc>::insert_equal(const data_type& value)
 {
     typedef std::pair<iterator, bool> Res;
-    auto res = get_insert_unique_pos(value_traits::getKey(value));
+    base_ptr x = root();
+    base_ptr y = header;
+    while(x != nullptr)
+    {
+        y = x;
+        x = (key_comp(value_traits::getKey(value), base_key(x)) ? x->lchild : x->rchild);
+    }
     node_ptr z = creat_node(value);
-    if(res.second != nullptr)  return Res(__insert(res.first, res.second, z), true);
-    destory(z);
-    return Res(iterator(res.first), false);
+    return __insert(x, y, z);
 }
 
 template<typename T, typename Compare, typename Alloc>

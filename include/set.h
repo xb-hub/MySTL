@@ -1,20 +1,21 @@
-#ifndef MYTINYSTL_MAP_H
-#define MYTINYSTL_MAP_H
+#ifndef MYTINYSTL_SET_H
+#define MYTINYSTL_SET_H
 
 #include "rb_tree.h"
 
 namespace mystl
 {
-template<typename Key, typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
-class map
+
+template<typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
+class set
 {
 public:
-    typedef Key                 key_type;
-    typedef T                   value_type;
-    typedef std::pair<Key, T>   data_type;
-    typedef Compare             key_compare;
+    typedef T   key_type;
+    typedef T   value_type;
+    typedef T   data_type;
+    typedef Compare key_compare;
 
-    typedef rb_tree<data_type, Compare, Alloc>      rb_tree_type;
+    typedef rb_tree<T, Compare, Alloc>              rb_tree_type;
     typedef typename rb_tree_type::value_traits     value_traits;
     typedef typename rb_tree_type::pointer          pointer;
     typedef typename rb_tree_type::reference        reference;
@@ -27,9 +28,9 @@ public:
     typedef typename rb_tree_type::difference_type  difference_type;
 
 public:
-    map() : tree(Compare()) {}
-    explicit map(const Compare& comp) : tree(comp) {}
-    ~map() {}
+    set() : tree(Compare()) {}
+    explicit set(const Compare& comp) : tree(comp) {}
+    ~set() {}
 
 public:
     iterator begin() const { return tree.begin(); }
@@ -38,23 +39,23 @@ public:
     size_type size() const { return tree.size(); }
 
 public:
-    std::pair<iterator, bool> insert(const data_type& data) { return tree.insert_unique(data); }
+    std::pair<iterator, bool>  insert(const data_type& data) { return tree.insert_unique(data); }
 
 private:
     rb_tree_type tree;
 };
 
 
-template<typename Key, typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
-class multimap
+template<typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
+class multiset
 {
 public:
-    typedef Key                 key_type;
-    typedef T                   value_type;
-    typedef std::pair<Key, T>   data_type;
-    typedef Compare             key_compare;
+    typedef T   key_type;
+    typedef T   value_type;
+    typedef T   data_type;
+    typedef Compare key_compare;
 
-    typedef rb_tree<data_type, Compare, Alloc>      rb_tree_type;
+    typedef rb_tree<T, Compare, Alloc>              rb_tree_type;
     typedef typename rb_tree_type::value_traits     value_traits;
     typedef typename rb_tree_type::pointer          pointer;
     typedef typename rb_tree_type::reference        reference;
@@ -67,9 +68,9 @@ public:
     typedef typename rb_tree_type::difference_type  difference_type;
 
 public:
-    multimap() : tree(Compare()) {}
-    explicit multimap(const Compare& comp) : tree(comp) {}
-    ~multimap() {}
+    multiset() : tree(Compare()) {}
+    explicit multiset(const Compare& comp) : tree(comp) {}
+    ~multiset() {}
 
 public:
     iterator begin() const { return tree.begin(); }
@@ -78,7 +79,7 @@ public:
     size_type size() const { return tree.size(); }
 
 public:
-    iterator insert(const data_type& data) { return tree.insert_equal(data); }
+    iterator  insert(const data_type& data) { return tree.insert_equal(data); }
 
 private:
     rb_tree_type tree;
