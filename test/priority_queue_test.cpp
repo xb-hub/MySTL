@@ -2,7 +2,7 @@
 
 int main()
 {
-    mystl::priority_queue<int> q;
+    mystl::priority_queue<int, mystl::vector<int>, mystl::greater<int>> q;
     q.push(2);
     q.push(0);
     q.push(1);

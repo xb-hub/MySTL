@@ -14,7 +14,7 @@
 
 namespace mystl
 {
-    template<class T>
+    template<typename T>
     class allocator
     {
     public:
@@ -35,46 +35,46 @@ namespace mystl
         static void construct(T* p, const T& value);
         static void construct(T* p, T&& value);
 
-        template<class... Args>
+        template<typename... Args>
         static void construct(T*p, Args&& ...args);
 
         static void destory(T* p);
         static void destory(T* frist, T* last);
     };
 
-    template<class T>
+    template<typename T>
     T* allocator<T>::allocate()
     {
         return static_cast<T*>(::operator new(sizeof(T)));
     }
 
-    template<class T>
+    template<typename T>
     T* allocator<T>::allocate(size_t n)
     {
         return static_cast<T*>(::operator new(n * sizeof(T)));
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::deallocate(T *p)
     {
         if(p == nullptr)    return;
         ::operator delete(p);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::deallocate(T *p, size_t n)
     {
         if(p == nullptr)    return;
         ::operator delete(p);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::construct(T *p)
     {
         mystl::construct(p);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::construct(T *p, const T &value)
     {
         #ifdef __DEBUG
@@ -83,7 +83,7 @@ namespace mystl
         mystl::construct(p, value);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::construct(T *p, T &&value)
     {
         #ifdef __DEBUG
@@ -92,20 +92,20 @@ namespace mystl
         mystl::construct(p, std::move(value));
     }
 
-    template<class T>
-    template<class ...Args>
+    template<typename T>
+    template<typename ...Args>
     void allocator<T>::construct(T *p, Args&& ...args)
     {
         mystl::construct(p, std::forward<Args>(args)...);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::destory(T *p)
     {
         mystl::destory(p);
     }
 
-    template<class T>
+    template<typename T>
     void allocator<T>::destory(T *first, T *last)
     {
         mystl::destory(first, last);

@@ -17,7 +17,7 @@ struct bidirectional_iterator_tag : public forward_iterator_tag {}; // ++ --
 struct random_access_iterator_tag : public bidirectional_iterator_tag {};   // 所有指针算术能力
 
 // 实现每个迭代器时，用于继承
-template<class Category, class T, class Distsnce = ptrdiff_t, class Pointer = T*, class Reference = T&>
+template<typename Category, typename T, typename Distsnce = ptrdiff_t, typename Pointer = T*, typename Reference = T&>
 struct iterator
 {
     typedef Category  iterator_category;
@@ -28,7 +28,7 @@ struct iterator
 };
 
 // iterator_traits实现
-template<class Iterator>
+template<typename Iterator>
 struct iterator_traits
 {
     typedef typename Iterator::iterator_category iterator_category;
@@ -38,7 +38,7 @@ struct iterator_traits
     typedef typename Iterator::reference         reference;
 };
 
-template<class I>
+template<typename I>
 struct iterator_traits<I*>
 {
     typedef mystl::random_access_iterator_tag   iterator_category;
@@ -48,7 +48,7 @@ struct iterator_traits<I*>
     typedef I&                                  reference;
 };
 
-template<class I>
+template<typename I>
 struct iterator_traits<const I*>
 {
     typedef mystl::random_access_iterator_tag   iterator_category;
@@ -59,27 +59,27 @@ struct iterator_traits<const I*>
 };
 
 // 萃取category
-template<class Iterator>
+template<typename Iterator>
 inline typename iterator_traits<Iterator>::iterator_category iterator_category(const Iterator&)
 {
     return typename iterator_traits<Iterator>::iterator_category();
 }
 
 // 萃取value_type
-template<class Iterator>
+template<typename Iterator>
 inline typename iterator_traits<Iterator>::value_type* value_type(const Iterator&)
 {
     return static_cast<typename iterator_traits<Iterator>::value_type*>(0);
 }
 
 // 萃取difference_type
-template<class Iterator>
+template<typename Iterator>
 inline typename iterator_traits<Iterator>::difference_type* difference_type(const Iterator&)
 {
     return static_cast<typename iterator_traits<Iterator>::difference_type*>(0);
 }
 
-template<class InputIterator>
+template<typename InputIterator>
 inline typename iterator_traits<InputIterator>::difference_type __distance(InputIterator first, InputIterator last, input_iterator_tag)
 {
     typename iterator_traits<InputIterator>::difference_type n = 0;
@@ -90,25 +90,25 @@ inline typename iterator_traits<InputIterator>::difference_type __distance(Input
     return n;
 }
 
-template<class RandomAccessIterator>
+template<typename RandomAccessIterator>
 inline typename iterator_traits<RandomAccessIterator>::difference_type __distance(RandomAccessIterator first, RandomAccessIterator last, random_access_iterator_tag)
 {
     return last - first;
 }
 
-template<class Iterator>
+template<typename Iterator>
 inline typename iterator_traits<Iterator>::difference_type distance(Iterator first, Iterator last)
 {
     __distance(first, last, category(first));
 }
 
-template<class InputIterator, class Distance>
+template<typename InputIterator, typename Distance>
 inline void __advance(InputIterator& p, Distance n, input_iterator_tag)
 {
     while(n--)  ++p;
 }
 
-template<class BidirectionalIterator, class Distance>
+template<typename BidirectionalIterator, typename Distance>
 inline void __advance(BidirectionalIterator& p, Distance n, bidirectional_iterator_tag)
 {
     if(n > 0)
@@ -121,13 +121,13 @@ inline void __advance(BidirectionalIterator& p, Distance n, bidirectional_iterat
     }
 }
 
-template<class RandomAccessIterator, class Distance>
+template<typename RandomAccessIterator, typename Distance>
 inline void __advance(RandomAccessIterator& p, Distance n, random_access_iterator_tag)
 {
     p += n;
 }
 
-template<class Iterator, class Distance>
+template<typename Iterator, typename Distance>
 inline void advance(Iterator& p, Distance n)
 {
     __advance(p, n, iterator_category(p));

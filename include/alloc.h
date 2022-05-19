@@ -301,7 +301,7 @@ typedef malloc_alloc alloc;
 #else
 typedef default_alloc alloc;
 #endif
-    template<class T, class Alloc = alloc>
+    template<typename T, typename Alloc = alloc>
     class simple_alloc
     {
     public:
