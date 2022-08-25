@@ -37,6 +37,11 @@ public:
     bool empty() const { return tree.empty(); }
     size_type size() const { return tree.size(); }
 
+//    value_type operator[](const key_type& key)
+//    {
+//        iterator it =
+//    }
+
 public:
     std::pair<iterator, bool> insert(const data_type& data) { return tree.insert_unique(data); }
 

@@ -37,6 +37,10 @@ int main()
     array.push_back(4);
     array.clear();
     std::cout << array.size() << std::endl;
+    std::cout << array.capacity() << std::endl;
+    array.reserve(50);
+    std::cout << array.size() << std::endl;
+    std::cout << array.capacity() << std::endl;
 //    for(int i = 0; i < 17; i++)
 //    {
 //        std::cout << array[i] << std::endl;

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/allocator.h
+iostream
+-
+construct.h
+../include/construct.h
+
+../include/construct.h
+new
+-
+iterator.h
+../include/iterator.h
+
+../include/iterator.h
+cstddef
+-
+
+/Users/xubin/Desktop/MyTinySTL/test/allocator_test.cpp
+allocator.h
+/Users/xubin/Desktop/MyTinySTL/test/allocator.h
+

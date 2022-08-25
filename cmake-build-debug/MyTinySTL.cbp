@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MyTinySTL"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable_test">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/hashtable_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 hashtable_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hashtable_test/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/hashtable_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 hashtable_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rb_tree">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/rb_tree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rb_tree"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rb_tree/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/rb_tree" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rb_tree/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="priority_queue">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/priority_queue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 priority_queue"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="priority_queue/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/priority_queue" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 priority_queue/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="heap">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/heap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 heap"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="heap/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/heap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 heap/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stack">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/stack" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 stack"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stack/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/stack" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 stack/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="deque">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/deque" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 deque"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="deque/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/deque" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 deque/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="set_test">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/set_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 set_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="set_test/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/set_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 set_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vector">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/vector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 vector"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vector/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/vector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 vector/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="allocator">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/allocator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 allocator"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="allocator/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/allocator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 allocator/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="map_test">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/map_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 map_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="map_test/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/map_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 map_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/list" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 list"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/list" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 list/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="memorypool">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/memorypool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 memorypool"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="memorypool/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/memorypool" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 memorypool/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyTinySTL">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/MyTinySTL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyTinySTL"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyTinySTL/fast">
+				<Option output="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/MyTinySTL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/xubin/Desktop/MyTinySTL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/xubin/Desktop/MyTinySTL/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyTinySTL/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/xubin/Desktop/MyTinySTL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/allocator_test.cpp">
+			<Option target="allocator"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/deque_test.cpp">
+			<Option target="deque"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/hashtable_test.cpp">
+			<Option target="hashtable_test"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/heap_test.cpp">
+			<Option target="heap"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/list_test.cpp">
+			<Option target="list"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/main.cpp">
+			<Option target="MyTinySTL"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/map_test.cpp">
+			<Option target="map_test"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/memorypool_test.cpp">
+			<Option target="memorypool"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/priority_queue_test.cpp">
+			<Option target="priority_queue"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/rb_tree_test.cpp">
+			<Option target="rb_tree"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/set_test.cpp">
+			<Option target="set_test"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/stack_test.cpp">
+			<Option target="stack"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/test/vector_test.cpp">
+			<Option target="vector"/>
+		</Unit>
+		<Unit filename="/Users/xubin/Desktop/MyTinySTL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

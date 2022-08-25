@@ -19,6 +19,14 @@ inline const T& max(const T& lv, const T& rv)
     return lv > rv ? lv : rv;
 }
 
+template<typename T>
+inline void swap(T& a, T& b)
+{
+    T tmp = a;
+    a = b;
+    b = tmp;
+}
+
 /******************************** fill ********************************/
 // 将[first, last)内元素填充新值
 template<typename Iterator, typename T>
@@ -228,6 +236,107 @@ template<typename BidirectionalIterator1, typename BidirectionalIterator2>
 inline BidirectionalIterator2 copy_backward(BidirectionalIterator1 first, BidirectionalIterator1 last, BidirectionalIterator2 result)
 {
     return unchecked_copy_backward(first, last, result);
+}
+
+/******************************** lower_bound ********************************/
+// 二分查找
+template<typename ForwardIterator, typename T>
+inline ForwardIterator __lower_bound(ForwardIterator first, ForwardIterator last, T n, forward_iterator_tag)
+{
+    auto len = distance(first, last);
+    auto half = len;
+    ForwardIterator mid;
+    while(len > 0)
+    {
+        half = len >> 1;
+        mid = first;
+        advance(mid, half);
+        if(*mid >= n)   len = half;
+        else
+        {
+            first = mid;
+            ++first;
+            len = len - half - 1;
+        }
+    }
+    return first;
+}
+
+template<typename RandomIterator, typename T>
+inline RandomIterator __lower_bound(RandomIterator first, RandomIterator last, T n, random_access_iterator_tag)
+{
+    auto len = last - first;
+    auto half = len;
+    RandomIterator mid;
+    while(len > 0)
+    {
+        half = len >> 1;
+        mid = first + half;
+        if(*mid >= n)   len = half;
+        else
+        {
+            first = mid + 1;
+            len = len - half - 1;
+        }
+    }
+    return first;
+}
+
+
+template<typename ForwardIterator, typename T>
+inline ForwardIterator lower_bound(ForwardIterator first, ForwardIterator last, T n)
+{
+    return mystl::__lower_bound(first, last, n, iterator_category(first));
+}
+
+/******************************** upper_bound ********************************/
+template<typename ForwardIterator, typename T>
+inline ForwardIterator __upper_bound(ForwardIterator first, ForwardIterator last, T n, forward_iterator_tag)
+{
+    auto len = distance(first, last);
+    auto half = len;
+    ForwardIterator mid;
+    while(len > 0)
+    {
+        half = len >> 1;
+        mid = first;
+        advance(mid, half);
+        if(*mid > n)   len = half;
+        else
+        {
+            first = mid;
+            ++first;
+            len = len - half - 1;
+        }
+    }
+    return first;
+}
+
+template<typename RandomIterator, typename T>
+inline RandomIterator __upper_bound(RandomIterator first, RandomIterator last, T n, random_access_iterator_tag)
+{
+    auto len = last - first;
+    auto half = len;
+    RandomIterator mid;
+    while(len > 0)
+    {
+        half = len >> 1;
+        mid = first + half;
+        if(*mid > n)   len = half;
+        else
+        {
+            first = mid + 1;
+            len = len - half - 1;
+        }
+    }
+    return first;
+}
+
+
+template<typename ForwardIterator, typename T>
+inline ForwardIterator upper_bound(ForwardIterator first, ForwardIterator last, T n)
+{
+    return mystl::__upper_bound(first, last, n, iterator_category(first));
 }
 
 }

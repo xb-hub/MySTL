@@ -59,6 +59,12 @@ public:
     // 列表初始化
     vector& operator=(std::initializer_list<value_type> rhs) {}
 
+    ~vector()
+    {
+        destroy_and_recover(begin_, end_, cap_ - begin_);
+        begin_ = end_ = cap_ = nullptr;
+    }
+
     /******************************** 操作符重载 ********************************/
     reference operator[](size_type n)
     {
@@ -82,6 +88,10 @@ public:
     void insert(iterator position, size_type n, const T& value);
     void clear() { erase(begin(), end()); }
 
+    void reserve(size_type n);
+
+    void swap(vector<T>& rhs);
+
     bool empty() const { return begin_ == end_; }
     size_type size() const { return end_ - begin_; }
     size_type capacity() const { return cap_ - begin_; }
@@ -100,6 +110,12 @@ private:
 
     void realloc_insert(iterator end, const T& value);
     void realloc_insert_n(iterator position, const size_type n, const T& value);
+
+    void destroy_and_recover(iterator first, iterator last, size_type n)
+    {
+        mystl::destory(first, last);
+        data_allocator::deallocate(first, n);
+    }
 };
 
 template<typename T, typename Alloc>
@@ -203,6 +219,21 @@ void vector<T, Alloc>::init_space(size_type n, size_type init_size)
         end_ = nullptr;
         cap_ = nullptr;
         throw "bad init!";
+    }
+}
+
+template<typename T, typename Alloc>
+void vector<T, Alloc>::reserve(size_type n)
+{
+    if(capacity() < n)
+    {
+        size_type old_size = size();
+        auto new_begin = data_allocator::allocate(n);
+        mystl::uninitialized_copy(begin_, end_, new_begin);
+        data_allocator::deallocate(begin_, cap_ - begin_);
+        begin_ = new_begin;
+        end_ = begin_ + old_size;
+        cap_ = begin_ + n;
     }
 }
 
@@ -330,7 +361,7 @@ typename vector<T, Alloc>::iterator vector<T, Alloc>::erase(iterator first, iter
 template<typename T, typename Alloc>
 void vector<T, Alloc>::insert(iterator position, size_type n, const T &value)
 {
-    assert(position >= begin() && position < end());
+    assert(position >= begin() && position <= end());
     if(n > 0)
     {
         const size_type remain = static_cast<size_type>(cap_ - end_);
@@ -363,6 +394,14 @@ void vector<T, Alloc>::insert(iterator position, size_type n, const T &value)
             realloc_insert_n(position, n, value);
         }
     }
+}
+
+template<typename T, typename Alloc>
+void vector<T, Alloc>::swap(vector<T> &rhs)
+{
+    mystl::swap(begin_, rhs.begin_);
+    mystl::swap(end_, rhs.end_);
+    mystl::swap(cap_, rhs.cap_);
 }
 
 } // namespace mystl

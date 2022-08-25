@@ -234,7 +234,7 @@ namespace mystl
             start_free += total_byte;
             return result;
         }
-        else if(left_byte > n)   // 内存池不足以分配nobjs，但可以分配部分
+        else if(left_byte >= n)   // 内存池不足以分配nobjs，但可以分配部分
         {
 #ifdef __DEBUG
             std::cout << "内存池不足以分配nobjs，但可以分配部分" << std::endl;

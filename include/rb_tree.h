@@ -481,19 +481,16 @@ public:
     size_type size() const { return node_count; }
 
 private:
-    node_ptr get_node() { return node_allocator::allocate(); }
-    void put_node(node_ptr node) { node_allocator::deallocate(node); }
-
     node_ptr creat_node(const data_type& data)
     {
-        node_ptr node = get_node();
+        node_ptr node = node_allocator::allocate();
         try
         {
             mystl::construct(node, data);
         }
         catch(...)
         {
-            put_node(node);
+            node_allocator::deallocate(node);
             throw "allocate failed!";
         }
         return node;
@@ -512,7 +509,7 @@ private:
     void destory(node_ptr node)
     {
         mystl::destory(&node->data);
-        put_node(node);
+        node_allocator::deallocate(node);
     }
 
 public:
@@ -525,7 +522,7 @@ public:
 private:
     void init()
     {
-        header = get_node();
+        header = node_allocator::allocate();;
         header->color = RED;
         root() = nullptr;
         header->lchild = header;

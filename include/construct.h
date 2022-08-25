@@ -43,14 +43,15 @@ void destory_one(Iterator p, std::true_type)
 }
 
 // 没有基本的析构函数，例如含有指针的类，需要调用析构函数释放内存。
-template<typename Iterator>
-void destory_one(Iterator p, std::false_type)
+template<typename T>
+void destory_one(T* p, std::false_type)
 {
     #ifdef __DEBUG
         std::cout << "no_trivially_destructible" << std::endl;
     #endif
     if(!p)
     {
+        std::cout << "析构函数" << std::endl;
         p->~T();
     }
 }
