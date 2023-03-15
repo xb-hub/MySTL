@@ -11,17 +11,17 @@ template<typename Key, typename T, typename HashFcn = mystl::hash<Key>, typename
 class unordered_map
 {
 public:
-    typedef mystl::hashtable<std::pair<Key, T>, HashFcn, KeyEqual, Alloc> hashtable;
-    typedef std::pair<Key, T>   data_type;
-    typedef T                   value_type;
-    typedef Key                 key_type;
-    typedef HashFcn             hasher;
-    typedef KeyEqual            equals;
+    using hashtable = mystl::hashtable<std::pair<Key, T>, HashFcn, KeyEqual, Alloc>;
+    using data_type = std::pair<Key, T>;
+    using value_type = T;
+    using key_type = Key;
+    using hasher = HashFcn;
+    using equals = KeyEqual;
 
-    typedef typename hashtable::iterator iterator;
-    typedef typename hashtable::pointer  pointer;
-    typedef typename hashtable::reference reference;
-    typedef typename hashtable::size_type size_type;
+    using iterator = typename hashtable::iterator;
+    using pointer = typename hashtable::pointer;
+    using reference = typename hashtable::reference;
+    using size_type = typename hashtable::size_type;
 
 private:
     hashtable ht;

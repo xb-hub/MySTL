@@ -299,9 +299,9 @@ namespace mystl
         }
     }
 #ifdef __USE_MALLOC
-typedef malloc_alloc alloc;
+using alloc = malloc_alloc;
 #else
-typedef default_alloc alloc;
+using alloc = default_alloc;
 #endif
     template<typename T, typename Alloc = alloc>
     class simple_alloc

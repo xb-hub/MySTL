@@ -8,6 +8,8 @@
 
 #include <cstddef>
 #include <assert.h>
+#include <thread>
+#include <mutex>
 #include "allocator.h"
 #include "alloc.h"
 #include "uninitialized.h"
@@ -19,16 +21,15 @@ template<typename T, typename Alloc = alloc>
 class vector
 {
 public:
-    typedef simple_alloc<T, Alloc>  data_allocator;
-    typedef T                       value_type;
-    typedef ptrdiff_t               difference_type;
-    typedef value_type*             pointer;
-    typedef value_type&             reference;
-    typedef const value_type&       const_reference;
-    typedef value_type*             iterator;
-    typedef const value_type*       const_iterator;
-    typedef size_t                  size_type;
-    // reverse_iterator
+    using data_allocator = simple_alloc<T, Alloc>;
+    using value_type = T;
+    using difference_type = ptrdiff_t;
+    using pointer = value_type*;
+    using reference = value_type&;
+    using const_reference = const value_type&;
+    using iterator = value_type*;
+    using const_iterato = const value_type*;
+    using size_type = size_t;
 
 private:
     iterator begin_;
@@ -54,11 +55,21 @@ public:
         rhs.cap_ = nullptr;
     }
 
+    vector(std::initializer_list<value_type> list)
+    {
+        range_init(list.begin(), list.end());
+    }
+
     // 赋值需要考虑cap不足的情况
     vector& operator=(const vector& rhs);
     vector& operator=(const vector&& rhs);
     // 列表初始化
-    vector& operator=(std::initializer_list<value_type> rhs) {}
+    vector& operator=(std::initializer_list<value_type> list) 
+    {
+        vector tmp(list);
+        swap(list);
+        return *this;
+    }
 
     ~vector()
     {
@@ -83,8 +94,10 @@ public:
     const_reference front() const { return *begin_; }
     const_reference back() const { return *(end_ - 1); }
 
-    iterator erase(iterator first, iterator last);
-    iterator erase(iterator element);
+    // iterator erase(iterator first, iterator last);
+    // iterator erase(iterator element);
+    auto erase(iterator first, iterator last) -> decltype(first);
+    auto erase(iterator element) -> decltype(element);
 
     void insert(iterator position, size_type n, const T& value);
     void clear() { erase(begin(), end()); }
@@ -304,7 +317,8 @@ void vector<T, Alloc>::pop_back()
 }
 
 template<typename T, typename Alloc>
-typename vector<T, Alloc>::iterator vector<T, Alloc>::erase(iterator element)
+// typename vector<T, Alloc>::iterator vector<T, Alloc>::erase(iterator element)
+auto vector<T, Alloc>::erase(iterator element) -> decltype(element)
 {
     assert(element >= begin() && element < end());
     if(element + 1 != end_)
@@ -317,7 +331,7 @@ typename vector<T, Alloc>::iterator vector<T, Alloc>::erase(iterator element)
 }
 
 template<typename T, typename Alloc>
-typename vector<T, Alloc>::iterator vector<T, Alloc>::erase(iterator first, iterator last)
+auto vector<T, Alloc>::erase(iterator first, iterator last) -> decltype(first)
 {
     assert(first >= begin() && last <= end() && !(last < first));
     if(last != end_)

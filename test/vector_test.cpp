@@ -12,18 +12,18 @@ struct student
 
 int main()
 {
-    mystl::vector<int> array(15, 1);
+    mystl::vector<int> array{1, 2, 3, 4};
     mystl::vector<int> a;
     array.push_back(2);
     array.push_back(3);
-    for(int i = 0; i < 17; i++)
+    for(int i = 0; i < array.size(); i++)
     {
         std::cout << array[i] << "-";
     }
     array.insert(array.begin(), 10, 5);
     std::cout << std::endl;
     array.erase(array.end() - 1);
-    for(int i = 0; i < 26; i++)
+    for(int i = 0; i < array.size(); i++)
     {
         std::cout << array[i] << "-";
     }

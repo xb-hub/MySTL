@@ -28,17 +28,16 @@ struct deque_iterator : iterator<random_access_iterator_tag, T>
     /**
      * ?? 为什么没有继承类型定义
      */
-    typedef T                                       value_type;
-    typedef Ref                                     reference;
-    typedef Ptr                                     pointer;
-    typedef size_t                                  size_type;
-    typedef ptrdiff_t                               difference_type;
-    typedef T*                                      value_pointer;
-    typedef T**                                     map_pointer;
-
-    typedef deque_iterator<T, T&, T*>               iterator;
-    typedef deque_iterator<T, const T&, const T*>   const_iterator;
-    typedef deque_iterator                          self;
+    using value_type = T;
+    using reference = Ref;
+    using pointer = Ptr;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
+    using value_pointer = T*;
+    using map_pointer = T**;
+    using iterator = deque_iterator<T, T&, T*>;
+    using const_iterator = deque_iterator<T, const T&, const T*>;
+    using self = deque_iterator;
 
 private:
     const static size_type buf_size = deque_buf_size<T>::value;
@@ -226,17 +225,16 @@ template<typename T, typename Alloc = alloc>
 class deque
 {
 public:
-    typedef simple_alloc<T, Alloc>                  data_allocator;     // 缓冲区内存分配器
-    typedef simple_alloc<T*, Alloc>                 map_allocator;      // deque_map内存分配器
-    typedef T                                       value_type;
-    typedef T*                                      pointer;
-    typedef T&                                      reference;
-    typedef size_t                                  size_type;
-    typedef T**                                     map_pointer;
-    typedef ptrdiff_t                               difference_type;
-
-    typedef deque_iterator<T, T&, T*>               iterator;
-    typedef deque_iterator<T, const T&, const T*>   const_iterator;
+    using data_allocator =  simple_alloc<T, Alloc>;                      // 缓冲区内存分配器
+    using map_allocator =  simple_alloc<T*, Alloc>;                     // deque_map内存分配器
+    using value_type =  T;
+    using pointer =  T*;
+    using reference =  T&;
+    using size_type =  size_t;
+    using map_pointer =  T**;
+    using difference_type =  ptrdiff_t;
+    using iterator =  deque_iterator<T, T&, T*>;
+    using const_iterator =  deque_iterator<T, const T&, const T*>;
 
 private:
     const static size_type buf_size = deque_buf_size<T>::value;

@@ -12,9 +12,9 @@ template<typename T, typename Sequence = deque<T>>
 class queue
 {
 public:
-    typedef typename Sequence::value_type value_type;
-    typedef typename Sequence::size_type size_type;
-    typedef typename Sequence::reference reference;
+    using value_type = typename Sequence::value_type;
+    using size_type = typename Sequence::size_type;
+    using reference = typename Sequence::reference;
 private:
     Sequence c;
 public:

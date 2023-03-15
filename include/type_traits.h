@@ -21,14 +21,14 @@ struct m_integral_constant
      * 凡是表达“只读”语义的场景都使用const，表达“常量”语义的场景都使用 constexpr
      */
     static constexpr T  value = v;
-    typedef T   value_type;
-    typedef m_integral_constant<T, v>  type;
+    using value_type = T;
+    using type = m_integral_constant<T, v>;
     // 隐式转换成T类型
     constexpr operator value_type() const noexcept { return value; }
 };
 
-typedef m_integral_constant<bool, false> m_fasle_type;
-typedef m_integral_constant<bool, true> m_true_type;
+using m_fasle_type = m_integral_constant<bool, false>;
+using m_true_type = m_integral_constant<bool, true>;
 
 // is_POD_type
 template<typename T>

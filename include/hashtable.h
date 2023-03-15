@@ -35,9 +35,9 @@ struct hashtable_node
 template<typename T, bool>
 struct hashtable_value_traits_imp
 {
-    typedef T value_type;
-    typedef T key_type;
-    typedef T data_type;
+    using value_type = T;
+    using key_type = T;
+    using data_type = T;
 
     template<typename Ty>
     static const key_type& getKey(const Ty& data)    { return data; }
@@ -49,9 +49,9 @@ struct hashtable_value_traits_imp
 template<typename T>
 struct hashtable_value_traits_imp<T, true>
 {
-    typedef typename std::remove_cv<typename T::first_type>::type   key_type;
-    typedef typename T::second_type                                 value_type;
-    typedef T                                                       data_type;
+    using key_type = typename std::remove_cv<typename T::first_type>::type;
+    using value_type = typename T::second_type;
+    using data_type = T;
 
     template<typename Ty>
     static const key_type& getKey(const Ty& data)    { return data.first; }
@@ -65,19 +65,19 @@ struct hashtable_value_traits
 {
     static constexpr bool is_map = mystl::is_pair<T>::value;
 
-    typedef hashtable_value_traits_imp<T, is_map>   value_traits;
+    using value_traits = hashtable_value_traits_imp<T, is_map>;
 
-    typedef typename value_traits::value_type value_type;
-    typedef typename value_traits::data_type data_type;
-    typedef typename value_traits::key_type key_type;
+    using value_type = typename value_traits::value_type;
+    using data_type = typename value_traits::data_type;
+    using key_type = typename value_traits::key_type;
 
-    typedef data_type*  pointer;
-    typedef data_type&  reference;
-    typedef const data_type* const_pointer;
-    typedef const data_type& const_reference;
+    using pointer = data_type*;
+    using reference = data_type&;
+    using const_pointer = const data_type*;
+    using const_reference = const data_type&;
 
-    typedef hashtable_node<T>   node_type;
-    typedef hashtable_node<T>*  node_pointer;
+    using node_type = hashtable_node<T>;
+    using node_pointer = hashtable_node<T>*;
 
     template<class Ty>
     static const key_type& getKey(const Ty& data)   { return value_traits::getKey(data); }
@@ -93,23 +93,20 @@ template<typename T, typename HashFcn, typename KeyEqual, typename Alloc>
 class hashtable_iterator
 {
 public:
-    typedef hashtable_node<T>   node_type;
-    typedef hashtable_node<T>*  node_pointer;
-
-    typedef hashtable<T, HashFcn, KeyEqual, Alloc>  hashTable;
-    typedef hashTable*                              hashtable_pointer;
-
-    typedef hashtable_iterator<T, HashFcn, KeyEqual, Alloc>         iterator;
-
-    typedef mystl::forward_iterator_tag iterator_category;
-    typedef hashtable_value_traits<T>   value_traits;
-    typedef typename value_traits::value_type value_type;
-    typedef typename value_traits::data_type  data_type;
-    typedef typename value_traits::key_type   key_type;
-    typedef size_t                            size_type;
-    typedef ptrdiff_t                         difference_type;
-    typedef data_type*                        pointer;
-    typedef data_type&                        reference;
+    using node_type = hashtable_node<T>;
+    using node_pointer = hashtable_node<T>*;
+    using hashTable = hashtable<T, HashFcn, KeyEqual, Alloc>;
+    using hashtable_pointer = hashTable*;
+    using iterator = hashtable_iterator<T, HashFcn, KeyEqual, Alloc>;
+    using iterator_category = mystl::forward_iterator_tag;
+    using value_traits = hashtable_value_traits<T>;
+    using value_type = typename value_traits::value_type;
+    using data_type = typename value_traits::data_type;
+    using key_type = typename value_traits::key_type;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
+    using pointer = data_type*;
+    using reference = data_type&;
 
 public:
     hashtable_iterator(node_pointer n, hashtable_pointer h)
@@ -213,27 +210,26 @@ class hashtable
 friend class mystl::hashtable_iterator<T, HashFcn, KeyEqual, Alloc>;
 
 public:
-    typedef hashtable_node<T> node;
-    typedef hashtable_value_traits<T>   value_traits;
-    typedef typename value_traits::value_type    value_type;
-    typedef typename value_traits::data_type     data_type;     // T
-    typedef typename value_traits::key_type      key_type;
-    typedef typename value_traits::pointer       pointer;
-    typedef typename value_traits::reference     reference;
-    typedef typename value_traits::const_pointer const_pointer;
-    typedef typename value_traits::const_reference const_reference;
-    typedef typename value_traits::node_pointer  node_pointer;
-    typedef typename value_traits::node_type     node_type;
+    using node = hashtable_node<T>;
+    using value_traits = hashtable_value_traits<T>;
+    using value_type = typename value_traits::value_type;
+    using data_type = typename value_traits::data_type;
+    using key_type = typename value_traits::key_type;
+    using pointer = typename value_traits::pointer;
+    using reference = typename value_traits::reference;
+    using const_pointer = typename value_traits::const_pointer;
+    using const_reference = typename value_traits::const_reference;
+    using node_pointer = typename value_traits::node_pointer;
+    using node_type = typename value_traits::node_type;
+    using size_type = size_t;
+    using hasher = HashFcn;
+    using key_equal = KeyEqual;
+    using iterator = hashtable_iterator<T, HashFcn, KeyEqual, Alloc>;
 
-    typedef size_t size_type;
-    typedef HashFcn   hasher;
-    typedef KeyEqual key_equal;
-    typedef hashtable_iterator<T, HashFcn, KeyEqual, Alloc> iterator;
+    using data_allocator = simple_alloc<data_type, Alloc>;
+    using node_allocator = simple_alloc<node_type, Alloc>;
 
-    typedef simple_alloc<data_type, Alloc>              data_allocator;
-    typedef simple_alloc<node_type, Alloc>              node_allocator;
-
-    typedef mystl::vector<node_pointer>                 bucket_type;
+    using bucket_type = mystl::vector<node_pointer>;
 
 public:
     hashtable(size_type n, const hasher& hf, const key_equal& eql);

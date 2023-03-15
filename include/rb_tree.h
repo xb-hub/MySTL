@@ -21,9 +21,9 @@ template <class T> struct rb_tree_const_iterator;
 template<typename T, bool>
 struct rb_tree_value_traits_imp
 {
-    typedef T value_type;
-    typedef T key_type;
-    typedef T data_type;
+    using value_type = T;
+    using key_type = T;
+    using data_type = T;
 
     template<typename Ty>
     static const key_type& getKey(const Ty& data)    { return data; }
@@ -36,15 +36,9 @@ struct rb_tree_value_traits_imp
 template<typename T>
 struct rb_tree_value_traits_imp<T, true>
 {
-    // template<typename _T1, typename _T2>
-    // struct pair
-    // {
-    //   typedef _T1 first_type;    ///< The type of the `first` member
-    //   typedef _T2 second_type;   ///< The type of the `second` member
-    // }
-    typedef typename std::remove_cv<typename T::first_type>::type   key_type;
-    typedef typename T::second_type                                value_type;
-    typedef T                                                       data_type;
+    using key_type = typename std::remove_cv<typename T::first_type>::type;
+    using value_type = typename T::second_type;
+    using data_type = T;
     
     template<typename Ty>
     static const key_type& getKey(const Ty& data)    { return data.first; }
@@ -58,11 +52,11 @@ struct rb_tree_value_traits
 {
     static constexpr bool is_map = mystl::is_pair<T>::value;
 
-    typedef rb_tree_value_traits_imp<T, is_map>  value_traits_type;
+    using value_traits_type = rb_tree_value_traits_imp<T, is_map>;
 
-    typedef typename value_traits_type::key_type      key_type;
-    typedef typename value_traits_type::value_type    value_type;
-    typedef typename value_traits_type::data_type     data_type;
+    using key_type = typename value_traits_type::key_type;
+    using value_type = typename value_traits_type::value_type;
+    using data_type = typename value_traits_type::data_type;
 
     template<typename Ty>
     static const key_type& getKey(const Ty& data)    { return value_traits_type::getKey(data); }
@@ -71,14 +65,18 @@ struct rb_tree_value_traits
     static const data_type& getValue(const Ty& data) { return value_traits_type::getValue(data); }
 };
 
-enum rb_tree_color_type { RED = false, BLACK = true };
+enum class rb_tree_color_type : bool
+{ 
+    RED = false,
+    BLACK = true
+};
 
 template<typename T>
 struct rb_tree_node_base
 {
-    typedef rb_tree_color_type color_type;
-    typedef rb_tree_node_base<T>* base_ptr;
-    typedef rb_tree_node<T>* node_ptr;
+    using color_type = rb_tree_color_type;
+    using base_ptr = rb_tree_node_base<T>*;
+    using node_ptr = rb_tree_node<T>*;
 
     base_ptr parent;
     base_ptr lchild;
@@ -89,8 +87,8 @@ struct rb_tree_node_base
 template<typename T>
 struct rb_tree_node : public rb_tree_node_base<T>
 {
-    typedef rb_tree_node_base<T>* base_ptr;
-    typedef rb_tree_node<T>* node_ptr;
+    using  base_ptr = rb_tree_node_base<T>*;
+    using node_ptr = rb_tree_node<T>*;
 
     T data;
 
@@ -105,25 +103,23 @@ struct rb_tree_node : public rb_tree_node_base<T>
 template<typename T>
 struct rb_tree_traits
 {
-    typedef typename rb_tree_value_traits<T>::key_type      key_type;
-    typedef typename rb_tree_value_traits<T>::value_type    value_type;
-    typedef typename rb_tree_value_traits<T>::data_type     data_type;
-
-    typedef data_type*                                     pointer;
-    typedef data_type&                                     reference;
-    typedef const data_type*                               const_pointer;
-    typedef const data_type&                               const_reference;
-
-    typedef rb_tree_node_base<T>                            base_type;
-    typedef rb_tree_node<T>                                 node_type;
-    typedef base_type*                                      base_ptr;
-    typedef node_type*                                      node_ptr; 
+    using key_type = typename rb_tree_value_traits<T>::key_type;
+    using value_type = typename rb_tree_value_traits<T>::value_type;
+    using data_type = typename rb_tree_value_traits<T>::data_type;
+    using pointer = data_type*;
+    using reference = data_type&;
+    using const_pointer = const data_type*;
+    using const_reference = const data_type&;
+    using base_type = rb_tree_node_base<T>;
+    using node_type = rb_tree_node<T>;
+    using base_ptr = base_type*;
+    using node_ptr = node_type*;
 };
 
 template<typename T>
 struct rb_tree_base_iterator : public mystl::iterator<mystl::bidirectional_iterator_tag, T>
 {
-    typedef typename rb_tree_traits<T>::base_ptr base_ptr;
+    using base_ptr = typename rb_tree_traits<T>::base_ptr ;
 
     base_ptr node;
 
@@ -175,7 +171,7 @@ struct rb_tree_base_iterator : public mystl::iterator<mystl::bidirectional_itera
     void decrement()
     {
         // 当node指向header，--操作后node指向最右边（最大值）处
-        if(node->color == RED && node->parent->parent == node)   node = node->rchild;
+        if(node->color == rb_tree_color_type::RED && node->parent->parent == node)   node = node->rchild;
         if(node->lchild != nullptr)
         {
             node = node->lchild;
@@ -211,15 +207,15 @@ struct rb_tree_base_iterator : public mystl::iterator<mystl::bidirectional_itera
 template<typename T>
 struct rb_tree_const_iterator : public rb_tree_base_iterator<T>
 {
-    typedef typename rb_tree_traits<T>::value_type  value_type;
-    typedef typename rb_tree_traits<T>::pointer     pointer;
-    typedef typename rb_tree_traits<T>::reference   reference;
-    typedef typename rb_tree_traits<T>::base_ptr    base_ptr;
-    typedef typename rb_tree_traits<T>::node_ptr    node_ptr;
+    using value_type = typename rb_tree_traits<T>::value_type;
+    using pointer = typename rb_tree_traits<T>::pointer;
+    using reference = typename rb_tree_traits<T>::reference;
+    using base_ptr = typename rb_tree_traits<T>::base_ptr;
+    using node_ptr = typename rb_tree_traits<T>::node_ptr;
 
-    typedef rb_tree_iterator<T>                     iterator;
-    typedef rb_tree_const_iterator<T>               const_iterator;
-    typedef const_iterator                          self;
+    using iterator = rb_tree_iterator<T>;
+    using const_iterator = rb_tree_const_iterator<T>;
+    using self = const_iterator;
 
     rb_tree_const_iterator() {};
     rb_tree_const_iterator(base_ptr ptr) { this->node = ptr; }
@@ -266,15 +262,15 @@ struct rb_tree_const_iterator : public rb_tree_base_iterator<T>
 template<typename T>
 struct rb_tree_iterator : public rb_tree_base_iterator<T>
 {
-    typedef typename rb_tree_traits<T>::value_type value_type;
-    typedef typename rb_tree_traits<T>::pointer    pointer;
-    typedef typename rb_tree_traits<T>::reference  reference;
-    typedef typename rb_tree_traits<T>::base_ptr   base_ptr;
-    typedef typename rb_tree_traits<T>::node_ptr   node_ptr;
+    using value_type = typename rb_tree_traits<T>::value_type;
+    using pointer = typename rb_tree_traits<T>::pointer;
+    using reference = typename rb_tree_traits<T>::reference;
+    using base_ptr = typename rb_tree_traits<T>::base_ptr;
+    using node_ptr = typename rb_tree_traits<T>::node_ptr;
 
-    typedef rb_tree_iterator<T>              iterator;
-    typedef rb_tree_const_iterator<T>        const_iterator;
-    typedef iterator                         self;
+    using iterator = rb_tree_iterator<T>;
+    using const_iterator = rb_tree_const_iterator<T>;
+    using self = iterator;
 
     rb_tree_iterator() {};
     rb_tree_iterator(base_ptr ptr) { this->node = ptr; }
@@ -352,21 +348,21 @@ inline void rb_tree_rotate_right(NodePtr x, NodePtr& root)
 template <typename NodePtr>
 inline void rb_tree_rebalance(NodePtr x, NodePtr& root)
 {
-    x->color = RED;
-    while(x != root && x->parent->color == RED)
+    x->color = rb_tree_color_type::RED;
+    while(x != root && x->parent->color == rb_tree_color_type::RED)
     {
         if (x->parent == x->parent->parent->lchild)
         {
             
             auto uncle = x->parent->parent->rchild;
-            if(uncle != nullptr && uncle->color == RED)
+            if(uncle != nullptr && uncle->color == rb_tree_color_type::RED)
             {
                 #ifdef TREE_DEBUG
                     std::cout << "case 1 : parent lchild, uncle RED" << std::endl;
                 #endif
-                x->parent->color = BLACK;
-                uncle->color = BLACK;
-                x->parent->parent->color = RED;
+                x->parent->color = rb_tree_color_type::BLACK;
+                uncle->color = rb_tree_color_type::BLACK;
+                x->parent->parent->color = rb_tree_color_type::RED;
                 x = x->parent->parent;
             }
             else
@@ -379,8 +375,8 @@ inline void rb_tree_rebalance(NodePtr x, NodePtr& root)
                     x = x->parent;
                     rb_tree_rotate_left(x, root);
                 }
-                x->parent->color = BLACK;
-                x->parent->parent->color = RED;
+                x->parent->color = rb_tree_color_type::BLACK;
+                x->parent->parent->color = rb_tree_color_type::RED;
                 rb_tree_rotate_right(x->parent->parent, root);
                 break;
             }
@@ -388,14 +384,14 @@ inline void rb_tree_rebalance(NodePtr x, NodePtr& root)
         else
         {
             auto uncle = x->parent->parent->lchild;
-            if(uncle != nullptr && uncle->color == RED)
+            if(uncle != nullptr && uncle->color == rb_tree_color_type::RED)
             {
                 #ifdef TREE_DEBUG
                     std::cout << "case 3 : parent rchild, uncle RED" << std::endl;
                 #endif
-                x->parent->color = BLACK;
-                uncle->color = BLACK;
-                x->parent->parent->color = RED;
+                x->parent->color = rb_tree_color_type::BLACK;
+                uncle->color = rb_tree_color_type::BLACK;
+                x->parent->parent->color = rb_tree_color_type::RED;
                 x = x->parent->parent;
             }
             else
@@ -408,50 +404,46 @@ inline void rb_tree_rebalance(NodePtr x, NodePtr& root)
                     x = x->parent;
                     rb_tree_rotate_right(x, root);
                 }
-                x->parent->color = BLACK;
-                x->parent->parent->color = RED;
+                x->parent->color = rb_tree_color_type::BLACK;
+                x->parent->parent->color = rb_tree_color_type::RED;
                 rb_tree_rotate_left(x->parent->parent, root);
                 break;
             }
         }
     }
-    root->color = BLACK;
+    root->color = rb_tree_color_type::BLACK;
 }
 
 template<typename T, typename Compare = mystl::less<typename rb_tree_traits<T>::key_type>, typename Alloc = alloc>
 class rb_tree
 {
 public:
-    typedef rb_tree_traits<T>                        tree_traits;
-    typedef rb_tree_value_traits<T>                  value_traits;
-
-    typedef typename tree_traits::base_type          base_type;
-    typedef typename tree_traits::base_ptr           base_ptr;
-    typedef typename tree_traits::node_type          node_type;
-    typedef typename tree_traits::node_ptr           node_ptr;
-    typedef typename tree_traits::key_type           key_type;
-    typedef typename tree_traits::value_type         value_type;
-    typedef typename tree_traits::data_type          data_type;
-    typedef Compare                                  key_compare;
-
-    typedef typename tree_traits::pointer           pointer;
-    typedef typename tree_traits::reference         reference;
-    typedef typename tree_traits::const_pointer     const_pointer;
-    typedef typename tree_traits::const_reference   const_reference;
-    typedef size_t                                  size_type;
-    typedef ptrdiff_t                               difference_type;
-
-    typedef rb_tree_iterator<T>                      iterator;
-    typedef rb_tree_const_iterator<T>                const_iterator;
-
-    typedef simple_alloc<T, Alloc>                  allocator_type;
-    typedef simple_alloc<T, Alloc>                  data_allocator;
-    typedef simple_alloc<base_type, Alloc>          base_allocator;
-    typedef simple_alloc<node_type, Alloc>          node_allocator;
+    using tree_traits =  rb_tree_traits<T>;
+    using value_traits =  rb_tree_value_traits<T>;;
+    using base_type =  typename tree_traits::base_type;
+    using base_ptr =  typename tree_traits::base_ptr;
+    using node_type =  typename tree_traits::node_type;
+    using node_ptr =  typename tree_traits::node_ptr;
+    using key_type =  typename tree_traits::key_type;
+    using value_type =  typename tree_traits::value_type;
+    using data_type =  typename tree_traits::data_type;
+    using key_compare =  Compare;
+    using pointer =  typename tree_traits::pointer;
+    using reference =  typename tree_traits::reference;
+    using const_pointer =  typename tree_traits::const_pointer;
+    using const_reference =  typename tree_traits::const_reference;
+    using size_type =  size_t;
+    using difference_type =  ptrdiff_t;
+    using iterator =  rb_tree_iterator<T>;
+    using const_iterator =  rb_tree_const_iterator<T>;
+    using allocator_type =  simple_alloc<T, Alloc>;
+    using data_allocator =  simple_alloc<T, Alloc>;
+    using base_allocator =  simple_alloc<base_type, Alloc>;
+    using node_allocator =  simple_alloc<node_type, Alloc>;
 
     
-    // typedef mystl::reverse_iterator<iterator>        reverse_iterator;
-    // typedef mystl::reverse_iterator<const_iterator>  const_reverse_iterator;
+    // using reverse_iterator = mystl::reverse_iterator<iterator>;
+    // using const_reverse_iterator = mystl::reverse_iterator<const_iterator>;
 
 public:
     rb_tree(const Compare& comp = Compare()) :
@@ -523,7 +515,7 @@ private:
     void init()
     {
         header = node_allocator::allocate();;
-        header->color = RED;
+        header->color = rb_tree_color_type::RED;
         root() = nullptr;
         header->lchild = header;
         header->rchild = header;
@@ -551,7 +543,7 @@ private:
 template<typename T, typename Compare, typename Alloc>
 std::pair<typename rb_tree<T, Compare, Alloc>::base_ptr, typename rb_tree<T, Compare, Alloc>::base_ptr> rb_tree<T, Compare, Alloc>::get_insert_unique_pos(const key_type& k)
 {
-    typedef std::pair<base_ptr, base_ptr> Res;
+    using Res = std::pair<base_ptr, base_ptr>;
     base_ptr x = root();
     base_ptr y = header;
     bool comp = true;
@@ -607,7 +599,7 @@ typename rb_tree<T, Compare, Alloc>::iterator rb_tree<T, Compare, Alloc>::__inse
 template<typename T, typename Compare, typename Alloc>
 typename rb_tree<T, Compare, Alloc>::iterator rb_tree<T, Compare, Alloc>::insert_equal(const data_type& value)
 {
-    typedef std::pair<iterator, bool> Res;
+    using Res = std::pair<iterator, bool>;
     base_ptr x = root();
     base_ptr y = header;
     while(x != nullptr)
@@ -622,7 +614,7 @@ typename rb_tree<T, Compare, Alloc>::iterator rb_tree<T, Compare, Alloc>::insert
 template<typename T, typename Compare, typename Alloc>
 std::pair<typename rb_tree<T, Compare, Alloc>::iterator, bool> rb_tree<T, Compare, Alloc>::insert_unique(const data_type& value)
 {
-    typedef std::pair<iterator, bool> Res;
+    using Res = std::pair<iterator, bool>;
     node_ptr z = creat_node(value);
     auto res = get_insert_unique_pos(value_traits::getKey(value));
     if(res.second != nullptr)   return Res(__insert(res.first, res.second, z), true);

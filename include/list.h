@@ -19,15 +19,15 @@ template<typename T> struct list_node;
 template<typename T>
 struct node_traits
 {
-    typedef list_base_node<T>*  base_ptr;
-    typedef list_node<T>*       node_ptr;
+    using base_ptr = list_base_node<T>*;
+    using node_ptr = list_node<T>*;
 };
 
 template<typename T>
 struct list_base_node
 {
-    typedef typename node_traits<T>::base_ptr base_ptr;
-    typedef typename node_traits<T>::node_ptr node_ptr;
+    using base_ptr = typename node_traits<T>::base_ptr;
+    using node_ptr = typename node_traits<T>::node_ptr;
 
     base_ptr prev;
     base_ptr next;
@@ -45,13 +45,13 @@ struct list_iterator : mystl::iterator<bidirectional_iterator_tag, T>
     /**
      * ?? 为什么没有继承iterator内的类型定义
      */
-    typedef bidirectional_iterator_tag          iterator_category;
-    typedef T                                   value_type;
-    typedef T*                                  pointer;
-    typedef T&                                  reference;
-    typedef typename node_traits<T>::node_ptr   node_ptr;
-    typedef typename node_traits<T>::base_ptr   base_ptr;
-    typedef list_iterator<T>                    self;
+    using iterator_category = bidirectional_iterator_tag;
+    using value_type = T;
+    using pointer = T*;
+    using reference = T&;
+    using node_ptr = typename node_traits<T>::node_ptr;
+    using base_ptr = typename node_traits<T>::base_ptr;
+    using self = list_iterator<T>;
 
     base_ptr node;
 
@@ -101,18 +101,18 @@ template<typename T, typename Alloc = alloc>
 class list
 {
 public:
-    typedef typename node_traits<T>::node_ptr node_ptr;
-    typedef typename node_traits<T>::base_ptr base_ptr;
+    using node_ptr = typename node_traits<T>::node_ptr;
+    using base_ptr = typename node_traits<T>::base_ptr;
 
-    typedef simple_alloc<list_base_node<T> , Alloc> base_allocator;
-    typedef simple_alloc<list_node<T>, Alloc>       node_allocator;
-    typedef T                                       value_type;
-    typedef ptrdiff_t                               difference_type;
-    typedef value_type*                             pointer;
-    typedef value_type&                             reference;
-    typedef list_iterator<T>                        iterator;
-//        typedef const_list_iterator<T>  const_iterator;
-    typedef size_t size_type;
+    using base_allocator = simple_alloc<list_base_node<T> , Alloc>;
+    using node_allocator = simple_alloc<list_node<T>, Alloc>;
+    using value_type = T;
+    using difference_type = ptrdiff_t;
+    using pointer = value_type*;
+    using reference = value_type&;
+    using iterator = list_iterator<T>;
+//  using const_iterator const_list_iterator<T>;
+    using size_type = size_t;
 
 public:
     list() { empty_initialize(); }

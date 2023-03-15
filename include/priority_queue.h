@@ -15,10 +15,10 @@ private:
     Compare comp;
 
 public:
-    typedef typename Sequence::value_type value_type;
-    typedef typename Sequence::size_type size_type;
-    typedef typename Sequence::reference reference;
-    typedef typename Sequence::const_reference const_reference;
+    using value_type = typename Sequence::value_type;
+    using size_type = typename Sequence::size_type;
+    using reference = typename Sequence::reference;
+    using const_reference = typename Sequence::const_reference;
 
     priority_queue() 
         : c()

@@ -18,12 +18,12 @@ namespace mystl
     class allocator
     {
     public:
-        typedef T   value_type;
-        typedef T*  pointer;
-        typedef T&  reference;
-        typedef const T*    const_pointer;
-        typedef const T&    const_reference;
-        typedef ptrdiff_t   difference_type;
+        using value_type = T;
+        using pointer = T*;
+        using reference = T&;
+        using const_pointer = const T*;
+        using const_reference = const T&;
+        using difference_type = ptrdiff_t;
     public:
         static T* allocate();
         static T* allocate(size_t n);

@@ -16,6 +16,9 @@
 
 namespace mystl
 {
+template<typename T>
+using is_POD = typename mystl::is_POD_type<T>::type;
+
 /******************************** uninitialized_copy ********************************/
 template<typename InputIterator, typename ForwardIterator>
 ForwardIterator __uninitialized_copy_aux(InputIterator first, InputIterator last, ForwardIterator result, mystl::m_true_type)
@@ -38,8 +41,7 @@ ForwardIterator __uninitialized_copy_aux(InputIterator first, InputIterator last
 template<typename InputIterator, typename ForwardIterator, typename T>
 ForwardIterator __uninitialized_copy(InputIterator first, InputIterator last, ForwardIterator result, T*)
 {
-    typedef typename mystl::is_POD_type<T>::type is_POD;
-    return __uninitialized_copy_aux(first, last, result, is_POD());
+    return __uninitialized_copy_aux(first, last, result, is_POD<T>());
 }
 
 template<typename InputIterator, typename ForwardIterator>
@@ -88,8 +90,7 @@ Iterator __uninitialized_fill_n_aux(Iterator first, Size n, const T& value, myst
 template<typename Iterator, typename Size, typename T, typename T1>
 Iterator __uninitialized_fill_n(Iterator first, Size n, const T& value, T1*)
 {
-    typedef typename mystl::is_POD_type<T>::type is_POD;
-    return __uninitialized_fill_n_aux(first, n, value, is_POD());
+    return __uninitialized_fill_n_aux(first, n, value, is_POD<T>());
 }
 
 template<typename Iterator, typename Size, typename T>
@@ -130,8 +131,7 @@ void __uninitialized_fill_aux(Iterator first, Iterator last, const T& value, mys
 template<typename Iterator, typename T>
 inline void __uninitialized_fill(Iterator first, Iterator last, const T& value, T*)
 {
-    typedef typename mystl::is_POD_type<T>::type is_POD;
-    __uninitialized_fill_aux(first, last, value, is_POD());
+    __uninitialized_fill_aux(first, last, value, is_POD<T>());
 }
 
 

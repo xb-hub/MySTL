@@ -56,12 +56,14 @@ void destory_one(T* p, std::false_type)
     }
 }
 
+template<typename Iterator>
+using trivial_destructor = std::is_trivially_destructible<typename iterator_traits<Iterator>::value_type>;
+
 // std::is_trivially_destructible<T>::value  判断类型T是否可以被破坏。
 template<typename Iterator>
 void destory(Iterator p)
 {
-    typedef std::is_trivially_destructible<typename iterator_traits<Iterator>::value_type> trivial_destructor;
-    destory_one(p, trivial_destructor());
+    destory_one(p, trivial_destructor<Iterator>());
 }
 
 template<typename Iterator>
@@ -79,8 +81,7 @@ void destory_dispatch(Iterator first, Iterator last, std::false_type)
 template<typename Iterator>
 void destory(Iterator first, Iterator last)
 {
-    typedef std::is_trivially_destructible<typename iterator_traits<Iterator>::value_type> trivial_destructor;
-    destory_dispatch(first, last, trivial_destructor());
+    destory_dispatch(first, last, trivial_destructor<Iterator>());
 }
 
 }

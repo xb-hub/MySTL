@@ -20,42 +20,42 @@ struct random_access_iterator_tag : public bidirectional_iterator_tag {};   // �
 template<typename Category, typename T, typename Distsnce = ptrdiff_t, typename Pointer = T*, typename Reference = T&>
 struct iterator
 {
-    typedef Category  iterator_category;
-    typedef T         value_type;
-    typedef Distsnce  difference_type;
-    typedef Pointer   pointer;
-    typedef Reference reference;
+    using iterator_category = Category;
+    using value_type = T;
+    using difference_type = Distsnce;
+    using pointer = Pointer;
+    using reference = Reference;
 };
 
 // iterator_traits实现
 template<typename Iterator>
 struct iterator_traits
 {
-    typedef typename Iterator::iterator_category iterator_category;
-    typedef typename Iterator::value_type        value_type;
-    typedef typename Iterator::difference_type   difference_type;
-    typedef typename Iterator::pointer           pointer;
-    typedef typename Iterator::reference         reference;
+    using iterator_category =  typename Iterator::iterator_category;
+    using value_type =  typename Iterator::value_type;
+    using difference_type =  typename Iterator::difference_type;
+    using pointer =  typename Iterator::pointer;
+    using reference =  typename Iterator::reference;
 };
 
 template<typename I>
 struct iterator_traits<I*>
 {
-    typedef mystl::random_access_iterator_tag   iterator_category;
-    typedef I                                   value_type;
-    typedef ptrdiff_t                           difference_type;
-    typedef I*                                  pointer;
-    typedef I&                                  reference;
+    using iterator_category = mystl::random_access_iterator_tag;
+    using value_type = I;
+    using difference_type = ptrdiff_t;
+    using pointer = I*;
+    using reference = I&;
 };
 
 template<typename I>
 struct iterator_traits<const I*>
 {
-    typedef mystl::random_access_iterator_tag   iterator_category;
-    typedef I                                   value_type;
-    typedef ptrdiff_t                           difference_type;
-    typedef const I*                            pointer;
-    typedef const I&                            reference;
+    using iterator_category = mystl::random_access_iterator_tag;
+    using value_type = I;
+    using difference_type = ptrdiff_t;
+    using pointer = const I*;
+    using reference = const I&;
 };
 
 // 萃取category

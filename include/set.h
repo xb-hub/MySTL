@@ -10,22 +10,22 @@ template<typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
 class set
 {
 public:
-    typedef T   key_type;
-    typedef T   value_type;
-    typedef T   data_type;
-    typedef Compare key_compare;
+    using key_type = T;
+    using value_type = T;
+    using data_type = T;
+    using key_compare = Compare;
 
-    typedef rb_tree<T, Compare, Alloc>              rb_tree_type;
-    typedef typename rb_tree_type::value_traits     value_traits;
-    typedef typename rb_tree_type::pointer          pointer;
-    typedef typename rb_tree_type::reference        reference;
-    typedef typename rb_tree_type::const_pointer    const_pointer;
-    typedef typename rb_tree_type::const_reference  const_reference;
+    using rb_tree_type = rb_tree<T, Compare, Alloc>;
+    using value_traits = typename rb_tree_type::value_traits;
+    using pointer = typename rb_tree_type::pointer;
+    using reference = typename rb_tree_type::reference;
+    using const_pointer = typename rb_tree_type::const_pointer;
+    using const_reference = typename rb_tree_type::const_reference;
     // 因为set的key==value，所以不能随意更改value值，iterator由const_iterator定义
-    typedef typename rb_tree_type::const_iterator   iterator;
-    typedef typename rb_tree_type::const_iterator   const_iterator;
-    typedef typename rb_tree_type::size_type        size_type;
-    typedef typename rb_tree_type::difference_type  difference_type;
+    using iterator = typename rb_tree_type::const_iterator;
+    using const_iterator = typename rb_tree_type::const_iterator;
+    using size_type = typename rb_tree_type::size_type;
+    using difference_type = typename rb_tree_type::difference_type;
 
 public:
     set() : tree(Compare()) {}
@@ -50,22 +50,22 @@ template<typename T, typename Compare = mystl::less<T>, typename Alloc = alloc>
 class multiset
 {
 public:
-    typedef T   key_type;
-    typedef T   value_type;
-    typedef T   data_type;
-    typedef Compare key_compare;
+    using key_type = T;
+    using value_type = T;
+    using data_type = T;
+    using key_compare = Compare;
 
-    typedef rb_tree<T, Compare, Alloc>              rb_tree_type;
-    typedef typename rb_tree_type::value_traits     value_traits;
-    typedef typename rb_tree_type::pointer          pointer;
-    typedef typename rb_tree_type::reference        reference;
-    typedef typename rb_tree_type::const_pointer    const_pointer;
-    typedef typename rb_tree_type::const_reference  const_reference;
+    using rb_tree_type = rb_tree<T, Compare, Alloc>;
+    using value_traits = typename rb_tree_type::value_traits;
+    using pointer = typename rb_tree_type::pointer;
+    using reference = typename rb_tree_type::reference;
+    using const_pointer = typename rb_tree_type::const_pointer;
+    using const_reference = typename rb_tree_type::const_reference;
     // 因为set的key==value，所以不能随意更改value值，iterator由const_iterator定义
-    typedef typename rb_tree_type::const_iterator   iterator;
-    typedef typename rb_tree_type::const_iterator   const_iterator;
-    typedef typename rb_tree_type::size_type        size_type;
-    typedef typename rb_tree_type::difference_type  difference_type;
+    using iterator = typename rb_tree_type::const_iterator;
+    using const_iterator = typename rb_tree_type::const_iterator;
+    using size_type = typename rb_tree_type::size_type;
+    using difference_type = typename rb_tree_type::difference_type;
 
 public:
     multiset() : tree(Compare()) {}
