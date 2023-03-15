@@ -12,11 +12,6 @@ struct student
 
 int main()
 {
-//    vector<student> array(10, student());
-//    for(int i = 0; i < 12; i++)
-//    {
-//        std::cout << array[i].no << std::endl;
-//    }
     mystl::vector<int> array(15, 1);
     mystl::vector<int> a;
     array.push_back(2);

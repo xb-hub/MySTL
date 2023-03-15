@@ -7,6 +7,7 @@
 // #define __DEBUG
 
 #include <cstddef>
+#include <assert.h>
 #include "allocator.h"
 #include "alloc.h"
 #include "uninitialized.h"
@@ -173,7 +174,6 @@ void vector<T, Alloc>::try_init() noexcept
         begin_ = nullptr;
         end_ = nullptr;
         cap_ = nullptr;
-        throw "bad init!";
     }
 }
 
@@ -294,35 +294,6 @@ template<typename T, typename Alloc>
 void vector<T, Alloc>::realloc_insert(iterator position,const T &value)
 {
     realloc_insert_n(position, 1, value);
-//#ifdef __DEBUG
-//        std::cout << "realloc!" << std::endl;
-//#endif
-//        size_type old_size = capacity();
-//        size_type new_size = old_size == 0 ? 1 : 2 * old_size;
-//        auto new_begin = data_allocator::allocate(new_size);
-//        auto new_end = new_begin;
-//        try
-//        {
-//            new_end = mystl::uninitialized_copy(begin_, position, new_begin);
-//            mystl::construct(new_end, value);
-//            new_end++;
-//            // insert后将后面数据加上
-//            new_end = mystl::uninitialized_copy(position, end_, new_end);
-//        }
-//        catch (...)
-//        {
-//            mystl::destory(new_begin, new_end);
-//            data_allocator::deallocate(new_begin, new_size);
-//            throw "bad realloc!";
-//        }
-//
-//        // 释放原vector
-//        mystl::destory(begin_, end_);
-//        data_allocator::deallocate(begin_, capacity());
-//
-//        begin_ = new_begin;
-//        end_ = new_end;
-//        cap_ =  new_begin + new_size;
 }
 
 template<typename T, typename Alloc>

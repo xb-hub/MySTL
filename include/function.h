@@ -1,6 +1,5 @@
 #ifndef MYTINYSTL_FUNCTION_H
 #define MYTINYSTL_FUNCTION_H
-#include <__hash_table>
 
 namespace mystl
 {

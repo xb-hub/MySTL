@@ -96,8 +96,8 @@ public:
     typedef hashtable_node<T>   node_type;
     typedef hashtable_node<T>*  node_pointer;
 
-    typedef hashtable<T, HashFcn, KeyEqual, Alloc>  hashtable;
-    typedef hashtable*                              hashtable_pointer;
+    typedef hashtable<T, HashFcn, KeyEqual, Alloc>  hashTable;
+    typedef hashTable*                              hashtable_pointer;
 
     typedef hashtable_iterator<T, HashFcn, KeyEqual, Alloc>         iterator;
 

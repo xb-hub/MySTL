@@ -9,7 +9,7 @@
 #ifndef MYTINYSTL_ALGOBASE_H
 #define MYTINYSTL_ALGOBASE_H
 
-#include <string>
+#include <string.h>
 
 namespace mystl
 {

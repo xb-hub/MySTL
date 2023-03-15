@@ -6,6 +6,7 @@
 #define MYTINYSTL_LIST_H
 // #define __DEBUG
 
+#include <assert.h>
 #include "allocator.h"
 #include "alloc.h"
 #include "iterator.h"
@@ -281,6 +282,7 @@ void list<T, Alloc>::unique()
 template<typename T, typename Alloc>
 void list<T, Alloc>::transfer(iterator position, iterator first, iterator last)
 {
+    if(position == last)    
     if(position != last)
     {
         last.node->prev->next = position.node;

@@ -40,6 +40,7 @@ namespace mystl
 
         static void* reallocate(void* p, size_t new_n)
         {
+	    // 重新申请内存
             void* result = realloc(p, new_n);
             if(result == nullptr)   result = oom_remalloc(p, new_n);
             return result;
@@ -52,6 +53,7 @@ namespace mystl
 
         static void (* set_malloc_handler(void(*f)()))()
         {
+	    // 内存申请失败处理函数
             void (* old)() = malloc_alloc_oom_handler;
             malloc_alloc_oom_handler = f;
             return old;
@@ -181,7 +183,7 @@ namespace mystl
         FreeList* free_node = free_list[freelist_index(n)];
         FreeList* q = reinterpret_cast<FreeList*>(p);
         q->free_list_link = free_node;
-        free_node = q;
+        free_list[freelist_index(n)] = q;
     }
 
     void* default_alloc::reallocate(void *p, size_t old_n, size_t new_n)
